@@ -3,6 +3,7 @@ package baseball.domain;
 import baseball.commonRules.Rules;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BaseballNumbers {
     private final List<BaseballNumber> numbers;
@@ -35,5 +36,13 @@ public class BaseballNumbers {
         if (numbers.stream().distinct().count() != Rules.MAX_SIZE.getValue()) {
             throw new IllegalArgumentException("[ERROR] 서로 다른 숫자를 입력해주세요.");
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+        BaseballNumbers baseballNumbers = (BaseballNumbers) obj;
+        return Objects.equals(this.numbers, baseballNumbers.numbers);
     }
 }
