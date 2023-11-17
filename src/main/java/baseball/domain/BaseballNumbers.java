@@ -9,11 +9,15 @@ public class BaseballNumbers {
 
     private BaseballNumbers(List<BaseballNumber> numbers) {
         validate(numbers);
-        this.numbers = numbers;
+        this.numbers = List.copyOf(numbers);
     }
 
     public static BaseballNumbers create(List<BaseballNumber> numbers) {
         return new BaseballNumbers(numbers);
+    }
+
+    public static BaseballNumbers createByIntegerList(List<Integer> numbers) {
+        return create(numbers.stream().map(BaseballNumber::valueOf).toList());
     }
 
     private void validate(List<BaseballNumber> numbers) {
