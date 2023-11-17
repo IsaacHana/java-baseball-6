@@ -23,4 +23,11 @@ class BaseballNumberTest {
     void createByInvalidNumber(int invalidNumber) {
         assertThatThrownBy(() -> BaseballNumber.valueOf(invalidNumber)).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("동등성 테스트")
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5, 6, 7, 8, 9})
+    void equalsTest(int validNumber) {
+        assertThat(BaseballNumber.valueOf(validNumber).equals(BaseballNumber.valueOf(validNumber))).isTrue();
+    }
 }
