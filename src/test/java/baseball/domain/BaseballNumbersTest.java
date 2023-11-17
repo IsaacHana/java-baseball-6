@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class BaseballNumbersTest {
@@ -55,5 +56,21 @@ class BaseballNumbersTest {
                         BaseballNumber.valueOf(1)
                 )
         )).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("동등성 테스트")
+    @Test
+    void equals() {
+        BaseballNumbers baseballNumbers1 = BaseballNumbers.createByIntegerList(List.of(1,2,3));
+        BaseballNumbers baseballNumbers2 = BaseballNumbers.createByIntegerList(List.of(1,2,3));
+        assertThat(baseballNumbers1.equals(baseballNumbers2)).isTrue();
+    }
+
+    @DisplayName("순서가 달라지면 동등하지 않아야한다")
+    @Test
+    void equalsByInvalidOrder() {
+        BaseballNumbers baseballNumbers1 = BaseballNumbers.createByIntegerList(List.of(1,2,3));
+        BaseballNumbers baseballNumbers2 = BaseballNumbers.createByIntegerList(List.of(3,2,1));
+        assertThat(baseballNumbers1.equals(baseballNumbers2)).isTrue();
     }
 }
