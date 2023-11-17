@@ -12,7 +12,7 @@ public class BaseballNumbers {
         this.numbers = numbers;
     }
 
-    public static BaseballNumbers valueOf(List<BaseballNumber> numbers) {
+    public static BaseballNumbers create(List<BaseballNumber> numbers) {
         return new BaseballNumbers(numbers);
     }
 

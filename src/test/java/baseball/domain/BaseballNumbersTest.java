@@ -11,7 +11,7 @@ class BaseballNumbersTest {
     @DisplayName("생성 테스트")
     @Test
     void create() {
-        BaseballNumbers baseballNumbers = BaseballNumbers.valueOf(
+        BaseballNumbers baseballNumbers = BaseballNumbers.create(
                 List.of(
                         BaseballNumber.valueOf(1),
                         BaseballNumber.valueOf(2),
@@ -23,7 +23,7 @@ class BaseballNumbersTest {
     @DisplayName("3자리 숫자가 아니라면 예외 발생")
     @Test
     void createByNonThreeDigit() {
-        assertThatThrownBy(() -> BaseballNumbers.valueOf(
+        assertThatThrownBy(() -> BaseballNumbers.create(
                 List.of(
                         BaseballNumber.valueOf(1),
                         BaseballNumber.valueOf(2),
@@ -36,7 +36,7 @@ class BaseballNumbersTest {
     @DisplayName("서로 다른 숫자가 아니라면 예외 발생")
     @Test
     void createByDuplicateNumbers() {
-        assertThatThrownBy(() -> BaseballNumbers.valueOf(
+        assertThatThrownBy(() -> BaseballNumbers.create(
                 List.of(
                         BaseballNumber.valueOf(1),
                         BaseballNumber.valueOf(2),
