@@ -1,8 +1,10 @@
 package baseball;
 
+import baseball.controller.BaseballGame;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-    	// git Test
+        BaseballGame baseballGame = new BaseballGame();
+        baseballGame.run();
     }
 }
