@@ -5,7 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RandomNumbersGenerator {
+public class RandomNumbersGenerator implements NumbersGenerator {
+    @Override
     public List<Integer> generate() {
         List<Integer> numbers = new ArrayList<>();
         while (numbers.size() < 3) {
