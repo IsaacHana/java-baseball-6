@@ -21,10 +21,15 @@ public class Computer {
 
     /**
      * 난수 생성기를 이용하여 Computer 객체를 생성합니다.
+     *
      * @param numbersGenerator 난수 생성기
      * @return Computer 객체
      */
     public static Computer createWithRandomNumbers(NumbersGenerator numbersGenerator) {
         return fromIntegerList(numbersGenerator.generate());
+    }
+
+    public BaseballNumbers getNumbers() {
+        return numbers;
     }
 }
