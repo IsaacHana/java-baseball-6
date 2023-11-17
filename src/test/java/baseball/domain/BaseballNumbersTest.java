@@ -20,6 +20,18 @@ class BaseballNumbersTest {
         );
     }
 
+    @DisplayName("List<Integer> 형으로 생성 테스트")
+    @Test
+    void createByIntegerList() {
+        BaseballNumbers baseballNumbers = BaseballNumbers.createByIntegerList(
+                List.of(
+                        1,
+                        2,
+                        3
+                )
+        );
+    }
+
     @DisplayName("3자리 숫자가 아니라면 예외 발생")
     @Test
     void createByNonThreeDigit() {
