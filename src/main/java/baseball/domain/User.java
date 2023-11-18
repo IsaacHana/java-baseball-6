@@ -21,7 +21,7 @@ public class User {
 
     public static User valueOf(String input) {
         try {
-            List<Integer> numbers = Arrays.stream(input.split("")).map(Integer::parseInt).toList();
+            List<Integer> numbers = Arrays.stream(input.trim().split("")).map(Integer::parseInt).toList();
             return valueOf(numbers);
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 숫자입니다.");
