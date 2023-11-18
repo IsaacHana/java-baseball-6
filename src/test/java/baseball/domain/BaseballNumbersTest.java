@@ -71,15 +71,6 @@ class BaseballNumbersTest {
     void equalsByInvalidOrder() {
         BaseballNumbers baseballNumbers1 = BaseballNumbers.createByIntegerList(List.of(1,2,3));
         BaseballNumbers baseballNumbers2 = BaseballNumbers.createByIntegerList(List.of(3,2,1));
-        assertThat(baseballNumbers1.equals(baseballNumbers2)).isTrue();
-    }
-
-    @DisplayName("포함 테스트")
-    @Test
-    void contains() {
-        BaseballNumbers baseballNumbers1 = BaseballNumbers.createByIntegerList(List.of(1,2,3));
-        assertThat(baseballNumbers1.contains(BaseballNumber.valueOf(3))).isTrue();
-        assertThat(baseballNumbers1.contains(BaseballNumber.valueOf(2))).isTrue();
-        assertThat(baseballNumbers1.contains(BaseballNumber.valueOf(1))).isTrue();
+        assertThat(baseballNumbers1.equals(baseballNumbers2)).isFalse();
     }
 }

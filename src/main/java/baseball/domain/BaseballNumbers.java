@@ -40,9 +40,13 @@ public class BaseballNumbers {
 
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
         BaseballNumbers baseballNumbers = (BaseballNumbers) obj;
         return Objects.equals(this.numbers, baseballNumbers.numbers);
+    }
+
+    public List<BaseballNumber> getNumbers() {
+        return numbers;
     }
 }
