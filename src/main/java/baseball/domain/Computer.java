@@ -2,6 +2,7 @@ package baseball.domain;
 
 import baseball.utils.NumbersGenerator;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Computer {
@@ -29,7 +30,7 @@ public class Computer {
         return fromIntegerList(numbersGenerator.generate());
     }
 
-    public BaseballNumbers getNumbers() {
-        return numbers;
+    public List<BaseballNumber> getNumbers() {
+        return Collections.unmodifiableList(numbers.getNumbers());
     }
 }

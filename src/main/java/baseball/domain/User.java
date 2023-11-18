@@ -1,6 +1,7 @@
 package baseball.domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class User {
@@ -25,5 +26,9 @@ public class User {
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 숫자입니다.");
         }
+    }
+
+    public List<BaseballNumber> getNumbers() {
+        return Collections.unmodifiableList(numbers.getNumbers());
     }
 }
