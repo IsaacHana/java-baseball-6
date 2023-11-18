@@ -6,13 +6,17 @@ import baseball.utils.Referee;
 import java.util.Map;
 
 public class OutputView {
+    public static void printErrorMessage(String errorMessage) {
+        System.out.println(errorMessage);
+    }
+
     public static void printGameStartMessage() {
         System.out.println("숫자 야구 게임을 시작합니다.");
     }
 
     public static void printResult(Referee referee) {
         Map<ResultType, Integer> gameResult = referee.getGameResult();
-        if(gameResult.isEmpty()) {
+        if (gameResult.isEmpty()) {
             System.out.print("낫싱");
         }
         for (ResultType resultType : gameResult.keySet()) {
