@@ -8,7 +8,7 @@ public class BallCounter implements Counter {
 
     @Override
     public int calculate(List<BaseballNumber> computerNumbers, List<BaseballNumber> userNumbers) {
-        StrikeCounter strikeCounter = new StrikeCounter();
+        Counter strikeCounter = new StrikeCounter();
 
         int ball = 0;
         for (int i = 0; i < computerNumbers.size(); i++) {
