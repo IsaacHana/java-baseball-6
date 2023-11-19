@@ -6,11 +6,11 @@ public class RetryUtils {
 
     public static void retry(InputFunction inputFunction) {
         boolean validInput = false;
-        while(!validInput) {
+        while (!validInput) {
             try {
                 inputFunction.performInput();
                 validInput = true;
-            } catch(IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 OutputView.printErrorMessage(e.getMessage());
             }
         }
