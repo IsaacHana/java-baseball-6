@@ -18,14 +18,17 @@ public class Referee {
     }
 
     public static boolean equals(List<BaseballNumber> computerNumbers, List<BaseballNumber> userNumbers) {
-        if(computerNumbers == null || userNumbers == null) {
+        if (computerNumbers == null || userNumbers == null) {
             return false;
         }
         return Objects.equals(computerNumbers, userNumbers);
     }
 
     public static boolean continues(String userIntention) {
-        return Objects.equals(userIntention, ContinueRules.CONTINUE.getValue());
+        if (ContinueRules.containsRule(userIntention)) {
+            throw new IllegalArgumentException("[ERROR] %s 또는 %s 를 입력해주세요.".formatted(ContinueRules.CONTINUE.getValue(), ContinueRules.QUIT.getValue()));
+        }
+        return ContinueRules.continuesGame(userIntention);
     }
 
     public Map<ResultType, Integer> getGameResult() {

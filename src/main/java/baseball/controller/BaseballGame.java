@@ -7,31 +7,35 @@ import baseball.utils.NumbersGenerator;
 import baseball.utils.Referee;
 import baseball.domain.User;
 import baseball.utils.RandomNumbersGenerator;
+import baseball.utils.RetryUtils;
 
 public class BaseballGame {
     static {
         OutputView.printGameStartMessage();
     }
 
+    private final NumbersGenerator numbersGenerator = new RandomNumbersGenerator();
+
     private Computer computer;
     private User user;
     private Referee referee;
 
-    private final NumbersGenerator numbersGenerator = new RandomNumbersGenerator();
+    private boolean continueGame;
 
     public void run() {
         do {
             createComputerNumbers();
             playGame();
-        } while (gameContinues());
+            gameContinues();
+        } while (continueGame);
     }
 
     private void createComputerNumbers() {
         computer = Computer.createWithRandomNumbers(numbersGenerator);
     }
 
-    private boolean gameContinues() {
-        return Referee.continues(InputView.getUserIntention());
+    private void gameContinues() {
+        RetryUtils.retry(() -> continueGame = Referee.continues(InputView.getUserIntention()));
     }
 
     private void playGame() {
@@ -44,7 +48,7 @@ public class BaseballGame {
     }
 
     private void collectUserNumbers() {
-        user = User.valueOf(InputView.getUserNumbers());
+        RetryUtils.retry(() -> user = User.valueOf(InputView.getUserNumbers()));
     }
 
     private void calculateResult() {
