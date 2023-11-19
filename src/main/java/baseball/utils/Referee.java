@@ -25,7 +25,7 @@ public class Referee {
     }
 
     public static boolean continues(String userIntention) {
-        if (ContinueRules.containsRule(userIntention)) {
+        if (!ContinueRules.containsRule(userIntention)) {
             throw new IllegalArgumentException("[ERROR] %s 또는 %s 를 입력해주세요.".formatted(ContinueRules.CONTINUE.getValue(), ContinueRules.QUIT.getValue()));
         }
         return ContinueRules.continuesGame(userIntention);
